@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posicionamento com CSS</title>
+    <style>
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+        .box {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .top-left {
+            top: 10px;
+            left: 10px;
+            background-color: red;
+        }
+        .top-right {
+            top: 10px;
+            right: 10px;
+            background-color: yellow;
+            color: black;
+        }
+        .bottom-left {
+            bottom: 10px;
+            left: 10px;
+            background-color: green;
+        }
+        .bottom-right {
+            bottom: 10px;
+            right: 10px;
+            background-color: yellow;
+            color: black;
+        }
+        .center {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box top-left">Esquerda em Cima</div>
+        <div class="box top-right">Direita em Cima</div>
+        <div class="box bottom-left">Esquerda em Baixo</div>
+        <div class="box bottom-right">Direita em Baixo</div>
+        <div class="box center">Centro</div>
+    </div>
+</body>
+</html>
