@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posicionamento com CSS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            position: relative;
+            width: 80%;
+            height: 80%;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .box {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .top-left {
+            top: 10px;
+            left: 10px;
+            background-color: red;
+        }
+        .top-right {
+            top: 10px;
+            right: 10px;
+            background-color: yellow;
+            color: black;
+        }
+        .bottom-left {
+            bottom: 10px;
+            left: 10px;
+            background-color: green;
+        }
+        .bottom-right {
+            bottom: 10px;
+            right: 10px;
+            background-color: yellow;
+            color: black;
+        }
+        .center {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box top-left">Esquerda em Cima</div>
+        <div class="box top-right">Direita em Cima</div>
+        <div class="box bottom-left">Esquerda em Baixo</div>
+        <div class="box bottom-right">Direita em Baixo</div>
+        <div class="box center">Centro</div>
+    </div>
+</body>
+</html>
