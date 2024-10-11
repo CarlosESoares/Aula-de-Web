@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocket Animation</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .rocket {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 200px;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/7/7e/SpaceX_Falcon_9.png') no-repeat center/contain;
+            animation: launch 5s linear infinite;
+        }
+
+        @keyframes launch {
+            0% {
+                bottom: 0;
+            }
+            100% {
+                bottom: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="rocket"></div>
+
+</body>
+</html>
