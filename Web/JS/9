@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem até X</title>
+</head>
+<body>
+
+    <script>
+        let X = parseInt(prompt("Digite um número:"));
+
+        if (isNaN(X) || X <= 0) {
+            console.log("Por favor, insira um número válido e maior que zero.");
+        } else {
+            for (let i = 1; i <= X; i++) {
+                console.log(i);
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soma de Números</title>
+</head>
+<body>
+
+    <script>
+        let A = parseFloat(prompt("Digite o valor de A:"));
+        let B = parseFloat(prompt("Digite o valor de B:"));
+
+        let soma = A + B;
+
+        alert("A soma de A e B é: " + soma);
+    </script>
+
+</body>
+</html>
