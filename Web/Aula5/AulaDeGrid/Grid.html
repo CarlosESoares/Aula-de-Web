@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+*{
+    border: 1px solid black;
+}
+.conteiner{
+    display: grid;
+            min-height: 100vh;
+            grid-gap: 10px;
+            grid-template-areas:
+            "header header header header"
+            "main     main   .     sidebar"
+            "main footer footer footer"
+            ;
+}
+@media (max-width: 500px)
+{    
+    .conteiner{
+        display:grid;
+        min-height:  100vh;
+        grid-template-areas: 
+        "header header "
+        "main sidebar"
+        "footer footer"
+        ;
+    }
+    }
+    #box1{
+        grid-area: header;
+        background-color: orange;
+    }
+    #box2{
+        grid-area: sidebar;
+        background-color: aqua;
+    }
+    #box3{
+    grid-area: main;
+    background-color: red;
+
+    }#box5{
+    grid-area: footer;
+    background-color: lightblue;
+    }
+</style>
+<body>
+    <div class="conteiner">
+        <box class="box" id="box1">box1</box>
+        <box class="box"id="box2">box2</box>
+        <box class="box"id="box3">box3</box>
+        <box class="box" id="box5"> box5</box>
+    </div>
+</body>
+</html>
