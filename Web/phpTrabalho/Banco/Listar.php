@@ -5,15 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+        table {
+            width: 100%;
+            border-collapse: collapse; /* Faz com que as bordas se juntem */
+        }
+        th, td {
+            border: 1px solid black; /* Borda preta */
+            text-align: center; /* Centraliza o texto */
+            padding: 10px; /* Espaço interno nas células */
+        }
+        th {
+            background-color: #f2f2f2; /* Cor de fundo das células de cabeçalho */
+        }
+        td {
+            height: 50px; /* Altura fixa para as células */
+        }
+    </style>
 <body>
-    <pre>
+   
 <?php   
 include_once("Database.php");
 include_once("pessoaDAO");
 
-getUsuarios();
+$listaPess=getUsuarios();
 
 ?>
-</pre>
+
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>email</th>
+    </tr>
+    <?php  for($i = 0;$i< count($listaPess);$i++){?>
+    
+    <tr>
+        <td><?php  echo $listaPess[$i]["id"]?></td>
+        <td><?php  echo $listaPess[$i]["nome"]?></td>
+        <td><?php  echo $listaPess[$i]["email"]?></td>
+    </tr>
+      <?php }?>
+   
+
+</table>
 </body>
 </html>

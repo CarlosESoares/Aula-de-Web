@@ -6,8 +6,11 @@
         $nome = $_POST["nome"];
         $email = $_POST["email"];
         save($nome,$email);
+        header("location:listar.php");
     }else{
         echo "Não deu certo";
     }
-    if(isse)
+    if(isset($_POST["acao"]) && $_POST["acao"]    == "editar"){
+
+    }
 ?>
