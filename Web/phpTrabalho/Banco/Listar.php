@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<style>
+    <style>
         table {
             width: 100%;
             border-collapse: collapse; /* Faz com que as bordas se juntem */
@@ -22,33 +21,30 @@
             height: 50px; /* Altura fixa para as células */
         }
     </style>
+</head>
 <body>
    
 <?php   
 include_once("Database.php");
 include_once("pessoaDAO");
 
-$listaPess=getUsuarios();
-
+$listaPess = getUsuarios();
 ?>
-
 
 <table>
     <tr>
         <th>Id</th>
         <th>Nome</th>
-        <th>email</th>
+        <th>Email</th>
     </tr>
-    <?php  for($i = 0;$i< count($listaPess);$i++){?>
-    
-    <tr>
-        <td><?php  echo $listaPess[$i]["id"]?></td>
-        <td><?php  echo $listaPess[$i]["nome"]?></td>
-        <td><?php  echo $listaPess[$i]["email"]?></td>
-    </tr>
-      <?php }?>
-   
-
+    <?php for ($i = 0; $i < count($listaPess); $i++) { ?>
+        <tr>
+            <td><a href="editPessoa.php?pessoa_id=<?php echo $listaPess[$i]["id"]; ?>"><?php echo $listaPess[$i]["id"]; ?></a></td>
+            <td><?php echo $listaPess[$i]["nome"]; ?></td>
+            <td><?php echo $listaPess[$i]["email"]; ?></td>
+        </tr>
+    <?php } ?>
 </table>
+
 </body>
 </html>
