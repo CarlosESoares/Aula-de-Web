@@ -1,11 +1,37 @@
+<?php
+    include_once("Database.php");
+    include_once("pessoaDAO");
+
+    // Verifica se o ID do usuário foi passado via GET
+    if (isset($_GET["pessoa_id"])) {
+        $id = $_GET["pessoa_id"];
+        $pessoa = getUsuario($id);
+    } else {
+        die("Pessoa não encontrada");
+    }
+
+    // Verifica se a ação é para deletar o usuário
+    if (isset($_POST["acao"]) && $_POST["acao"] == "deletar") {
+        $id = $_POST["id"]; // Captura o ID do usuário para exclusão
+        if (deletUsuario($id)) {
+            // Após excluir, redireciona para a página de listagem
+            header("Location: Listar.php");
+            exit;
+        } else {
+            // Se ocorrer erro na exclusão, redireciona para a página de listagem
+            header("Location: Listar.php");
+            exit;
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<style>
+    <title>Editar Pessoa</title>
+    <style>
         /* Configuração geral do body */
         body {
             display: flex;
@@ -43,18 +69,18 @@
 
         input[type="text"],
         input[type="email"] {
-            width: 100%; /* Tamanho total da caixa de texto */
+            width: 100%; 
             padding: 10px;
-            margin-bottom: 15px; /* Espaçamento entre os campos */
+            margin-bottom: 15px; 
             border: 1px solid #ccc;
             border-radius: 4px;
             font-size: 1em;
         }
 
         input[type="submit"] {
-            width: 100%; /* Largura total para o botão */
+            width: 100%; 
             padding: 12px;
-            background-color: #4CAF50; /* Cor verde do botão */
+            background-color: #4CAF50; 
             color: white;
             border: none;
             border-radius: 4px;
@@ -64,37 +90,44 @@
         }
 
         input[type="submit"]:hover {
-            background-color: #45a049; /* Cor do botão quando passa o mouse */
+            background-color: #45a049;  
+        }
+
+        /* Estilo do botão de exclusão */
+        .delete-btn {
+            background-color: red;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .delete-btn:hover {
+            background-color: darkred;
         }
     </style>
+</head>
 <body>
 
-<?php
-    include("Database.php");
-    include("PessoaDAO");
-    if(isset($_GET["pessoa_id"])){
-        $id = $_GET["pessoa_id"];
-        $pessoa = getUsuario($id);
-    }else{
-        die("Pessoa nao encontrada");
-    }
+<h2>Editar Pessoa</h2>
+<form action="editar.php" method="post">
+    <input type="text" name="id" value="<?php echo $pessoa['id']; ?>" hidden>
+    <label for="nome">Nome: </label>
+    <input type="text" name="nome" value="<?php echo $pessoa['nome']; ?>" required>
+    <label for="email">Email: </label>
+    <input type="email" name="email" value="<?php echo $pessoa['email']; ?>" required>
+    
+    <input type="text" name="acao" value="editar" hidden>
+    <input type="submit" value="Salvar alterações">
+</form>
 
-?>
+<!-- Formulário de exclusão -->
+<form action="editPessoa.php" method="post" onsubmit="return confirm('Tem certeza de que deseja excluir este usuário?');">
+    <input type="text" name="id" value="<?php echo $pessoa['id']; ?>" hidden>
+    <input type="text" name="acao" value="deletar" hidden>
+    <input type="submit" value="Excluir Usuário" class="delete-btn">
+</form>
 
-
-
-    <h2> Edição de pessoa</h2>
-    <fieldset>
-    <form action="pessoaControle.php" method="post">
-        <input type="text" name="id" id="id" hidden>
-        <label for="nome">Nome </label>
-        <input type="text" name="nome" id="nome" value="<?php echo $pessoa["nome"]?>">
-        <label for="email">Email </label>
-        <input type="email" name="email" id="email" value="<?php echo $pessoa["email"]?>">
-        <input type="text" name="acao" value="editar" hidden>
-        <input type="submit" value="Salvar alterações">
-    </form>
-
-    </fieldset>
 </body>
 </html>
