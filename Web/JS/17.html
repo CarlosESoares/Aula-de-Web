@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17</title>
+    <style>
+        *{margin: 0px;padding: 0px;}
+        #mae{
+            display: flex;
+            min-height: 100vh;
+            min-width: 100vw;
+        }
+        .cor{
+            min-height: 100vh;
+            min-width: 20vw;
+           display: flex;
+           justify-content: center;
+           align-items: end;
+        }
+        h1{
+            font: 50pt normal black;
+        }
+    </style>
+</head>
+<body>
+    <div id="mae">
+        <div id="cor1" class="cor"><h1 id="t1"></h1></div>
+        <div id="cor2" class="cor"><h1 id="t2"></h1></div>
+        <div id="cor3" class="cor"><h1 id="t3"></h1></div>
+        <div id="cor4" class="cor"><h1 id="t4"></h1></div>
+        <div id="cor5" class="cor"><h1 id="t5"></h1></div>
+    </div>
+    <script>
+        let cor1 = document.getElementById("cor1");
+        let t1 = document.getElementById("t1");
+        let cor2 = document.getElementById("cor2");
+        let t2 = document.getElementById("t2");
+        let cor3 = document.getElementById("cor3");
+        let t3 = document.getElementById("t3");
+        let cor4 = document.getElementById("cor4");
+        let t4 = document.getElementById("t4");
+        let cor5 = document.getElementById("cor5");
+        let t5 = document.getElementById("t5");
+
+        document.addEventListener("keydown", ()=>{
+            let _1 = '#'+parseInt((Math.random() * 0xFFFFFF)).toString(16)
+            let _2 = '#'+parseInt((Math.random() * 0xFFFFFF)).toString(16)
+            let _3 = '#'+parseInt((Math.random() * 0xFFFFFF)).toString(16)
+            let _4 = '#'+parseInt((Math.random() * 0xFFFFFF)).toString(16)
+            let _5 = '#'+parseInt((Math.random() * 0xFFFFFF)).toString(16)
+            cor1.style.backgroundColor = _1 ;
+            t1.textContent =_1;
+            cor2.style.backgroundColor = _2 ;
+            t2.textContent =_2;
+            cor3.style.backgroundColor = _3 ;
+            t3.textContent =_3;
+            cor4.style.backgroundColor = _4 ;
+            t4.textContent =_4;
+            cor5.style.backgroundColor = _5 ;
+            t5.textContent =_5;
+        });
+    </script>
+</body>
+</html> 

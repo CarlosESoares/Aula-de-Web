@@ -6,10 +6,6 @@
     <title>1</title>
 </head>
 <body>
-    <script>
-        document.write("Hello World");
-        console.log("Hello World");
-        alert("Hello World");
-    </script>
+    <!-- -->
 </body>
 </html>

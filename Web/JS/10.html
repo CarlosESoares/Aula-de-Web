@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>10</title>
 </head>
 <body>
-    
-    <script> 
-    function invert(str) {
-        let resultado = "";
-        for (let i = str.length - 1; i >= 0; i--) {
-            resultado += str[i];
+    <script>
+        let a = prompt("Digite um texto");
+        
+        function inverte(b){
+            let res="";
+            for(let i = a.length-1;i>=0;i--){
+                res +=b[i];
+            }
+            return res;
         }
-        return resultado;
-    }
-
-
+        function inverte2(b){
+            return b.split('').reverse().join('');
+        }
+        alert(inverte(a));
     </script>
 </body>
 </html>

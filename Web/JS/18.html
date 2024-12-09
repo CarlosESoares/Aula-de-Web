@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18</title>
+    <style>
+        #mae{
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="mae"></div>
+
+    <script>
+        let div = document.getElementById("mae");
+        document.addEventListener("keypress", (e)=>{
+            const p = document.createElement("p");
+            p.innerText = e.code;
+            div.appendChild(p);
+        })
+    </script>
+</body>
+</html>

@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1</title>
+    <title>Home</title>
+    <style>
+        
+    </style>
 </head>
 <body>
-    <script>
-        document.write("Hello World");
-        console.log("Hello World");
-        alert("Hello World");
-    </script>
+    <pre>
+    <?php 
+        $hello = "Oi Romulo";
+        echo $hello;
+    ?>
+    </pre>
 </body>
 </html>

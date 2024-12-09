@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16</title>
+    <style>
+        *{margin: 0px;}
+        #div{
+            display: flex;
+            min-height: 100vh;
+            min-width: 100vw;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="div">
+        <button id="bt" onclick="clickar()">Altere a cor</button>
+    </div>
+
+    <script>
+        let bt = document.getElementById("bt");
+        let div = document.getElementById("div");
+
+        function clickar(){
+            let red = parseInt((Math.random()*255));
+            let blue = parseInt((Math.random()*255));
+            let green = parseInt((Math.random()*255));
+            div.style.backgroundColor = "rgb("+red+", "+green+", "+blue+")";
+        }
+    </script>
+</body>
+</html>

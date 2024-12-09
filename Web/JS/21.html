@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21</title>
+    <style>
+        *{margin: 0x;padding: 0px;border-collapse: collapse;}
+        #calc{
+            min-height: 100vh;
+            display: grid;
+            grid-template-areas:
+            "vis  vis  vis  vis"
+            "ope  ope  ope  ope"
+            "num  num  num  cal"
+            "num  num  num  cal"
+            "low  low  low  cal"
+        }
+        #vis{
+            grid-area: vis;
+            background-color: black;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            color: white;
+            font: 50pt bold;
+
+        }
+        #ope{
+            grid-area: ope;
+            background-color: rgb(190, 190, 190);
+            display: flex;
+            justify-content: space-between;
+        }
+        #ope button{
+            width: 100%;
+            background-color: rgb(190, 190, 190);
+            font: 30pt bold;
+        }
+        #num{
+            grid-area: num;
+            display: grid;
+            grid-template-areas: 
+            "no7 no8 no9"
+            "no4 no5 no6"
+            "no1 no2 no3"
+            ;
+            background-color: green;
+        }
+        #num button{
+            width: 100%;
+            height: 100%;
+        }
+
+        #num button{
+            background-color: rgb(190, 190, 190);
+            font: 30pt bold;
+        }
+        #cal{
+            grid-area: cal;
+            display: flex;
+            align-items: stretch;
+        }
+        #cal button{
+            font: 30pt bold;
+            background-color: orangered;
+            width: 100%;
+        }
+        #low{
+            grid-area: low;
+            display: grid;
+            grid-template-areas: 
+            "po1 po2 po3"
+            ;
+        }
+        #zero{grid-area: po1;}
+        #ponto{grid-area: po2;}
+        #AC{grid-area: po3;}
+        #low button{
+            font: 30pt bold;
+            background-color: rgb(190, 190, 190);
+        }
+    </style>
+</head>
+<body>
+    <div id="calc">
+        <div id="vis" class="div">0</div>
+        <div id="ope" class="div"> 
+            <button id="mais">+</button>
+            <button id="menos">-</button>
+            <button id="mult">x</button>
+            <button id="divi">/</button>
+        </div>
+        <div id="num" class="div">
+            <button id="p7">7</button>
+            <button id="p8">8</button>
+            <button id="p9">9</button>
+            <button id="p4">4</button>
+            <button id="p5">5</button>
+            <button id="p6">6</button>
+            <button id="p1">1</button>
+            <button id="p2">2</button>
+            <button id="p3">3</button>
+        </div>
+        <div id="low" class="div">
+            <button id="zero">0</button>
+            <button id="ponto">.</button>
+            <button id="AC">AC</button>
+        </div>
+        <div id="cal" class="div"><button id="calcular">=</button></div>
+    </div>
+
+    <script>
+        let nums =[];
+        let operacoes=["mais"];
+        let resultado=0;
+        let num="";
+        let temponto =true;
+
+        let visor = document.getElementById("vis");
+        let calcular = document.getElementById("calcular");
+
+        let bt0 = document.getElementById("zero");
+        let bt1 = document.getElementById("p1");
+        let bt2 = document.getElementById("p2");
+        let bt3 = document.getElementById("p3");
+        let bt4 = document.getElementById("p4");
+        let bt5 = document.getElementById("p5");
+        let bt6 = document.getElementById("p6");
+        let bt7 = document.getElementById("p7");
+        let bt8 = document.getElementById("p8");
+        let bt9 = document.getElementById("p9");
+
+        let btponto = document.getElementById("ponto");
+        let btac = document.getElementById("AC");
+
+        let btmais =document.getElementById("mais");
+        let btmenos =document.getElementById("menos");
+        let btmult =document.getElementById("mult");
+        let btdivi =document.getElementById("divi");
+
+        bt0.addEventListener("click",()=>{num +=0; visor.innerHTML =num;})
+        bt1.addEventListener("click",()=>{num +=1; visor.innerHTML = num})
+        bt2.addEventListener("click",()=>{num +=2; visor.innerHTML = num})
+        bt3.addEventListener("click",()=>{num +=3; visor.innerHTML = num})
+        bt4.addEventListener("click",()=>{num +=4; visor.innerHTML = num})
+        bt5.addEventListener("click",()=>{num +=5; visor.innerHTML = num})
+        bt6.addEventListener("click",()=>{num +=6; visor.innerHTML = num})
+        bt7.addEventListener("click",()=>{num +=7; visor.innerHTML = num})
+        bt8.addEventListener("click",()=>{num +=8; visor.innerHTML = num})
+        bt9.addEventListener("click",()=>{num +=9; visor.innerHTML = num})
+
+        btponto.addEventListener("click",()=>{
+            if(temponto){
+                if(num ==""){
+                num +="0.";
+                visor.innerHTML = num;
+                temponto=false 
+                }else{
+                num +=".";
+                visor.innerHTML = num;
+                temponto=false
+                }
+            }
+        })
+        btac.addEventListener("click",()=>{resultado=0;temponto=true;nums=[];operacoes=[];num="";visor.innerHTML="0";})
+        
+        btmais.addEventListener("click",()=>{
+            if(num !=""){
+                nums.push(parseFloat(num));
+                operacoes.push("mais");
+            }else{
+                alert("Você quebrou minha calculadora :(")
+            }
+            num="";
+            temponto=true;
+            visor.innerHTML="+";
+        })
+        btmenos.addEventListener("click",()=>{
+            if(num !=""){
+                nums.push(parseFloat(num));
+                operacoes.push("menos");
+            }else{
+                alert("Você quebrou minha calculadora :(")
+            }
+            num="";
+            temponto=true;
+            visor.innerHTML="-";
+        })
+        btmult.addEventListener("click",()=>{
+            if(num !=""){
+                nums.push(parseFloat(num));
+                operacoes.push("mult");
+            }else{
+                alert("Você quebrou minha calculadora :(")
+            }
+            num="";
+            temponto=true;
+            visor.innerHTML="x";
+        })
+        btdivi.addEventListener("click",()=>{
+            if(num !=""){
+                nums.push(parseFloat(num));
+                operacoes.push("divi");
+            }else{
+                alert("Você quebrou minha calculadora :(")
+            }
+            num="";
+            temponto=true;
+            visor.innerHTML="/";
+        })
+        
+        calcular.addEventListener("click",()=>{
+            nums.push(parseFloat(num));
+            for(let i=0;i<nums.length;i++){
+                switch(operacoes[i]){
+                    case "mais":
+                        resultado+=nums[i];
+                        break;
+                    case "menos":
+                        resultado-=nums[i];
+                        break;
+                    case "mult":
+                        resultado*=nums[i];
+                        break;
+                    case "divi":
+                        resultado/=nums[i];
+                        break;
+                }
+            }
+            num="0";
+            operacoes.push("menos");
+            temponto=true;
+            visor.innerHTML=resultado;
+            resultado=0;
+        })
+       
+
+
+    </script>
+</body>
+</html>

@@ -3,25 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>11</title>
 </head>
 <body>
-    
-    <script> 
-    function ehPalindromo(str) {
-        let resultado = "";
-            for (let i = str.length - 1; i >= 0; i--) {
-                resultado += str[i];
+    <script>
+        let a = prompt("Digite um texto");
+        
+        function ehPalindromo(str){
+            str = str.toUpperCase(str);
+            let rts = str.split('').reverse().join('');
+            if(rts == str){
+                return "é palindromo";
+            }else{
+                return "não é palindromo";
             }
-            // Verifica se a string original é igual à string invertida
-            if (resultado === str) {
-                console.log(true);
-            } else {
-                console.log(false);
-            }
-            return resultado;
         }
-
+        alert(ehPalindromo(a));
     </script>
 </body>
 </html>

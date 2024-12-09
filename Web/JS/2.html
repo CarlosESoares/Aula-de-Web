@@ -2,21 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2</title>
 </head>
 <body>
-    
     <script>
-
-        function hello(p1,p2){
-            document.body.innerText="Hello word";
-        alert("hello word");
-        console.log("Hello word")
-     
+        function hello(){
+            document.write("Hello World");
+            console.log("Hello World");
+            alert("Hello World");
         }
-        hello()
-    
+        hello();
     </script>
+    <!--
+    o codigo da direita causará um erro porque está declarado no head ao inves do body
+    e isso fara com que o comando tente procurar um elemento que não existe ainda
+    -->
 </body>
 </html>
