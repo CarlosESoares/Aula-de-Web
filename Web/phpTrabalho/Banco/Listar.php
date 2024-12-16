@@ -23,28 +23,31 @@
     </style>
 </head>
 <body>
-   
-<?php   
-include_once("Database.php");
-include_once("pessoaDAO");
+<?php
+    include_once("Database.php");
+    include_once("PessoaDAO");
 
-$listaPess = getUsuarios();
-?>
-
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Nome</th>
-        <th>Email</th>
-    </tr>
-    <?php for ($i = 0; $i < count($listaPess); $i++) { ?>
+    $listaPessoa = getUsuarios();
+    
+    ?>
+    <table>
         <tr>
-            <td><a href="editPessoa.php?pessoa_id=<?php echo $listaPess[$i]["id"]; ?>"><?php echo $listaPess[$i]["id"]; ?></a></td>
-            <td><?php echo $listaPess[$i]["nome"]; ?></td>
-            <td><?php echo $listaPess[$i]["email"]; ?></td>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Email</th>
         </tr>
-    <?php } ?>
-</table>
+        <?php
+        for($i=0; $i <count($listaPessoa); $i++){
+            ?>
+            <tr>
+                <td><a href="editPessoa.php?pessoa_id=<?php echo $listaPessoa[$i]["idusuario"] ?>"><?php echo $listaPessoa[$i]["idusuario"]?></a></td>
+                <td><?php echo $listaPessoa[$i]["nome"] ?></td>
+                <td><?php echo $listaPessoa[$i]["email"] ?></td>
+            </tr>
+            <?php
+        }
+        ?>
+    </table>
 
 </body>
 </html>

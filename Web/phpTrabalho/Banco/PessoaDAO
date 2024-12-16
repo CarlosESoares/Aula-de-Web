@@ -18,20 +18,17 @@
         $stmt = $db->prepare($sql);
         $stmt->execute();
         $resultado = $stmt->fetchALL(PDO::FETCH_ASSOC);
-      return ($resultado);
-        
+        return $resultado;
     }
+
     function getUsuario($id){
-           $db =conecta();
-        $sql = "select * from usuario where id = ?";
-        $stmt = $db -> prepare($sql);
+        $db =conecta();
+        $sql = "select * from usuario where idusuario = ?";
+        $stmt = $db->prepare($sql);
         $stmt->bindValue(1,$id);
         $stmt->execute();
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
         return $usuario;
-
- 
-        
     }
     function deletUsuario($id){
         $db = conecta();
@@ -39,11 +36,14 @@
         $stmt = $db -> prepare($sql);
         $stmt->bindValue(1,$id);
         $stmt->execute();
-        
-        
-
-
     }
-  
-  
+    function editUsuario($id, $nome, $email) {
+        $db = conecta();
+        $sql = "UPDATE usuario SET nome = ?, email = ? WHERE idusuario = ?";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(1, $nome);
+        $stmt->bindValue(2, $email);
+        $stmt->bindValue(3, $id);
+        $stmt->execute();
+    }
 ?>

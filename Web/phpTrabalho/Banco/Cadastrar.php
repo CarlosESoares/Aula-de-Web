@@ -6,7 +6,6 @@
     <title>cadastro</title>
 </head>
 <style>
-        /* Configuração geral do body */
         body {
             display: flex;
             justify-content: center; /* Alinha o conteúdo horizontalmente */
@@ -68,7 +67,7 @@
         <label for="email">Email </label>
         <input type="email" name="email" id="email">
         <input type="text" name="acao" value="cadastrar" hidden>
-        <input type="submit" value="Adicionar">
+        <input type="submit" value="cadastrar">
     </form>
 </body>
 </html>

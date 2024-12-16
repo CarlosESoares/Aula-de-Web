@@ -1,28 +1,14 @@
 <?php
     include_once("Database.php");
-    include_once("pessoaDAO");
+    include_once("PessoaDAO");
 
-    // Verifica se o ID do usuário foi passado via GET
     if (isset($_GET["pessoa_id"])) {
-        $id = $_GET["pessoa_id"];
-        $pessoa = getUsuario($id);
+        $id2 = $_GET["pessoa_id"];
+        $pessoa = getUsuario($id2);
     } else {
         die("Pessoa não encontrada");
     }
 
-    // Verifica se a ação é para deletar o usuário
-    if (isset($_POST["acao"]) && $_POST["acao"] == "deletar") {
-        $id = $_POST["id"]; // Captura o ID do usuário para exclusão
-        if (deletUsuario($id)) {
-            // Após excluir, redireciona para a página de listagem
-            header("Location: Listar.php");
-            exit;
-        } else {
-            // Se ocorrer erro na exclusão, redireciona para a página de listagem
-            header("Location: Listar.php");
-            exit;
-        }
-    }
 ?>
 
 <!DOCTYPE html>
@@ -32,21 +18,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Pessoa</title>
     <style>
-        /* Configuração geral do body */
         body {
             display: flex;
-            justify-content: center; /* Alinha o conteúdo horizontalmente */
-            align-items: center; /* Alinha o conteúdo verticalmente */
-            min-height: 100vh; /* Ocupa toda a altura da tela */
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
             margin: 0;
-            background-color: #f4f4f4; /* Cor de fundo da página */
+            background-color: #f4f4f4; 
             font-family: Arial, sans-serif;
         }
 
-        /* Estilizando o fieldset */
         fieldset {
             width: 100%;
-            max-width: 500px; /* Limita o tamanho máximo do form */
+            max-width: 500px; 
             padding: 20px;
             border: 2px solid #ccc;
             border-radius: 8px;
@@ -60,7 +44,6 @@
             margin-bottom: 10px;
         }
 
-        /* Estilo para os rótulos e inputs */
         label {
             display: block;
             margin-bottom: 8px;
@@ -93,7 +76,6 @@
             background-color: #45a049;  
         }
 
-        /* Estilo do botão de exclusão */
         .delete-btn {
             background-color: red;
             color: white;
@@ -111,8 +93,8 @@
 <body>
 
 <h2>Editar Pessoa</h2>
-<form action="editar.php" method="post">
-    <input type="text" name="id" value="<?php echo $pessoa['id']; ?>" hidden>
+<form action="pessoaControle.php" method="post">
+    <input type="text" name="id" value="<?php echo $pessoa['idusuario']; ?>" >
     <label for="nome">Nome: </label>
     <input type="text" name="nome" value="<?php echo $pessoa['nome']; ?>" required>
     <label for="email">Email: </label>
@@ -120,14 +102,10 @@
     
     <input type="text" name="acao" value="editar" hidden>
     <input type="submit" value="Salvar alterações">
+    
+    <button type="submit" name="acao" value="delete">Excluir Usuário</button>
 </form>
 
-<!-- Formulário de exclusão -->
-<form action="editPessoa.php" method="post" onsubmit="return confirm('Tem certeza de que deseja excluir este usuário?');">
-    <input type="text" name="id" value="<?php echo $pessoa['id']; ?>" hidden>
-    <input type="text" name="acao" value="deletar" hidden>
-    <input type="submit" value="Excluir Usuário" class="delete-btn">
-</form>
 
 </body>
 </html>
