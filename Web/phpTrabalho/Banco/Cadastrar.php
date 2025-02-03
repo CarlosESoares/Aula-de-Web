@@ -35,7 +35,8 @@
         }
 
         input[type="text"],
-        input[type="email"] {
+        input[type="email"],
+        input[type="password"] {
             width: 100%; /* Tamanho total da caixa de texto */
             padding: 10px;
             margin-bottom: 15px; /* Espaçamento entre os campos */
@@ -66,6 +67,10 @@
         <input type="text" name="nome" id="nome">
         <label for="email">Email </label>
         <input type="email" name="email" id="email">
+        <label for="usuario">Usuário </label>
+        <input type="text" name="usuario" id="usuario">
+        <label for="senha">Senha </label>
+        <input type="password" name="senha" id="senha">
         <input type="text" name="acao" value="cadastrar" hidden>
         <input type="submit" value="cadastrar">
     </form>

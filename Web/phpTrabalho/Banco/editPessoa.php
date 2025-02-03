@@ -51,7 +51,8 @@
         }
 
         input[type="text"],
-        input[type="email"] {
+        input[type="email"],
+        input[type="password"] {
             width: 100%; 
             padding: 10px;
             margin-bottom: 15px; 
@@ -94,18 +95,21 @@
 
 <h2>Editar Pessoa</h2>
 <form action="pessoaControle.php" method="post">
-    <input type="text" name="id" value="<?php echo $pessoa['idusuario']; ?>" >
+    <input type="hidden" name="id" value="<?php echo $pessoa['idusuario']; ?>">
     <label for="nome">Nome: </label>
     <input type="text" name="nome" value="<?php echo $pessoa['nome']; ?>" required>
     <label for="email">Email: </label>
     <input type="email" name="email" value="<?php echo $pessoa['email']; ?>" required>
-    
-    <input type="text" name="acao" value="editar" hidden>
+    <label for="usuario">Usuário: </label>
+    <input type="text" name="usuario" value="<?php echo $pessoa['usuario']; ?>" required>
+    <label for="senha">Senha: </label>
+    <input type="password" name="senha" value="<?php echo $pessoa['senha']; ?>" required>
+
+    <input type="hidden" name="acao" value="editar">
     <input type="submit" value="Salvar alterações">
     
-    <button type="submit" name="acao" value="delete">Excluir Usuário</button>
+    <button type="submit" name="acao" value="delete" class="delete-btn">Excluir Usuário</button>
 </form>
-
 
 </body>
 </html>

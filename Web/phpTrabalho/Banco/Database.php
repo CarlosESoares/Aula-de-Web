@@ -1,7 +1,7 @@
 <?php 
     function conecta(){
         $user="root";
-        $senha="aluno";
+        $senha="Aluno";
         $database="ppi";
         $host="localhost";
         
